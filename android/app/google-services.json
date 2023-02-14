@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "270096450242",
+    "project_id": "restaurant-80fed",
+    "storage_bucket": "restaurant-80fed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:270096450242:android:d0b945716c7e23207c715b",
+        "android_client_info": {
+          "package_name": "com.mazur.delicious"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "270096450242-5odh9n99jv0cu5jdbvp29p5indc95d9q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mazur.delicious",
+            "certificate_hash": "6134a6b2cd5c7456208c10076cba05ff94af797d"
+          }
+        },
+        {
+          "client_id": "270096450242-cnfv4nbjc04oibe6nki3rtg2e7q58acp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-2v1RF0qC9zwqX5pbi2q79YFEkGdWc1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "270096450242-cnfv4nbjc04oibe6nki3rtg2e7q58acp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
