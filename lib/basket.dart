@@ -19,11 +19,9 @@ class BasketPage extends StatefulWidget {
 class _BasketPageState extends State<BasketPage> {
   @override
   Widget build(BuildContext context) {
-    context.watch<ChangeBasket>().getCount;
-
     return Scaffold(
       appBar: AppBar(
-        title: Text('${globalBasket.count()} товаров на ${globalBasket.stringPrice(globalProducts)} ₽'),
+        title: Text('${context.watch<ChangeBasket>().getCount} товаров на ${globalBasket.stringPrice(globalProducts)} ₽'),
         centerTitle: true,
       ),
       body: globalBasket.products.isNotEmpty ? const BasketView() : const BasketEmpty(),

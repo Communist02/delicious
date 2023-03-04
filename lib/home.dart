@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
         selectedIndex: context.watch<ChangeNavigation>().getIndex,
         iconSize: 30,
         onItemSelected: (int index) {
-          setState(() => context.read<ChangeNavigation>().change(index));
+         context.read<ChangeNavigation>().change(index);
         },
         items: [
           BottomNavyBarItem(
