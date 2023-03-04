@@ -18,7 +18,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _index = 0;
   final List<Widget> _page = [
     const MenuPage(),
     const ReservationPage(),
@@ -34,17 +33,13 @@ class _HomePageState extends State<HomePage> {
         statusBarColor: Colors.transparent,
       ),
     );
-    if (context.watch<ChangeNavigation>().getSwitch) {
-      _index = context.watch<ChangeNavigation>().getIndex;
-    }
     return Scaffold(
-      body: _page[_index],
+      body: _page[context.watch<ChangeNavigation>().getIndex],
       bottomNavigationBar: BottomNavyBar(
-        selectedIndex: _index,
+        selectedIndex: context.watch<ChangeNavigation>().getIndex,
         iconSize: 30,
-        backgroundColor: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
         onItemSelected: (int index) {
-          setState(() => _index = index);
+          setState(() => context.read<ChangeNavigation>().change(index));
         },
         items: [
           BottomNavyBarItem(
@@ -88,31 +83,12 @@ class _HomePageState extends State<HomePage> {
                   color: Theme.of(context).tabBarTheme.labelColor,
                 ),
               ),
-              showBadge: context.watch<ChangeBasket>().getCount != 0 && _index != 4,
+              showBadge: context.watch<ChangeBasket>().getCount != 0 && context.watch<ChangeNavigation>().getIndex != 4,
               child: const Icon(Icons.shopping_cart_outlined),
             ),
             activeColor: Theme.of(context).bottomNavigationBarTheme.selectedItemColor!,
             inactiveColor: Theme.of(context).bottomNavigationBarTheme.unselectedItemColor!,
-            title: badges.Badge(
-              position: badges.BadgePosition.topEnd(end: -2, top: -10),
-              badgeAnimation: const badges.BadgeAnimation.scale(animationDuration: Duration(milliseconds: 200)),
-              badgeStyle: badges.BadgeStyle(
-                shape: badges.BadgeShape.square,
-                badgeColor: Theme.of(context).colorScheme.secondary,
-                borderRadius: BorderRadius.circular(11),
-                padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
-              ),
-              badgeContent: Text(
-                context.watch<ChangeBasket>().getCount.toString(),
-                style: TextStyle(
-                  fontSize: 13,
-                  fontFamily: 'BalsamiqSans',
-                  color: Theme.of(context).tabBarTheme.labelColor,
-                ),
-              ),
-              showBadge: context.watch<ChangeBasket>().getCount != 0 && _index == 4,
-              child: const Text('Корзина', overflow: TextOverflow.ellipsis),
-            ),
+            title: const Text('Корзина', overflow: TextOverflow.ellipsis),
           ),
         ],
       ),

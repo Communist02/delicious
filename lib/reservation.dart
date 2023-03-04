@@ -85,7 +85,7 @@ class TableView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => TablePage(table))),
+      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => TablePage(table: table))),
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(21)),
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),

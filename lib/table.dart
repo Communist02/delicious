@@ -10,21 +10,19 @@ import 'package:provider/provider.dart';
 int _indexDay = 0;
 
 class TablePage extends StatefulWidget {
+  const TablePage({Key? key, required this.table}) : super(key: key);
   final RestaurantTable table;
 
-  TablePage(this.table);
-
   @override
-  _TablePageState createState() => _TablePageState(table);
+  State<TablePage> createState() => _TablePageState();
 }
 
 class _TablePageState extends State<TablePage> {
-  final RestaurantTable table;
   int _index = 0;
 
-  _TablePageState(this.table) {
+  _TablePageState() {
     for (int i = 0; i < globalTables.tables.length; i++) {
-      if (globalTables.tables[i].number == table.number) {
+      if (globalTables.tables[i].number == widget.table.number) {
         _index = i;
         break;
       }
@@ -34,7 +32,7 @@ class _TablePageState extends State<TablePage> {
   List<Widget> viewTables() {
     List<Widget> tabs = [];
     for (final table in globalTables.tables) {
-      tabs.add(TableView(table));
+      tabs.add(TableView(table: table));
     }
     return tabs;
   }
@@ -65,16 +63,14 @@ class _TablePageState extends State<TablePage> {
 }
 
 class TableView extends StatefulWidget {
+  const TableView({Key? key, required this.table}) : super(key: key);
   final RestaurantTable table;
 
-  TableView(this.table);
-
   @override
-  _TableViewState createState() => _TableViewState(table);
+  State<TableView> createState() => _TableViewState();
 }
 
 class _TableViewState extends State<TableView> {
-  final RestaurantTable table;
   final CloudStore _cloudStore = CloudStore();
 
   final _colorFree = Colors.transparent;
@@ -88,10 +84,10 @@ class _TableViewState extends State<TableView> {
   int _startTime = 0;
   int _endTime = 0;
 
-  _TableViewState(this.table);
-
   @override
   Widget build(BuildContext context) {
+    final RestaurantTable table = widget.table;
+
     return Scaffold(
       body: ListView(
         key: const PageStorageKey('Tables'),

@@ -335,14 +335,10 @@ class HistoryView extends StatefulWidget {
   final ValueChanged<String> onSelected;
 
   @override
-  State<HistoryView> createState() => _HistoryViewState(onSelected);
+  State<HistoryView> createState() => _HistoryViewState();
 }
 
 class _HistoryViewState extends State<HistoryView> {
-  final ValueChanged<String> onSelected;
-
-  _HistoryViewState(this.onSelected);
-
   void saveHistory() async {
     final prefs = await SharedPreferences.getInstance();
     prefs.setStringList('searchHistory', searchHistory.history);
@@ -369,7 +365,7 @@ class _HistoryViewState extends State<HistoryView> {
           onTap: () {
             searchHistory.add(text);
             saveHistory();
-            onSelected(text);
+            widget.onSelected(text);
           },
         );
       },

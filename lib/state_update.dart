@@ -30,26 +30,19 @@ class ChangeTheme with ChangeNotifier {
 
   String get getTheme => _theme;
 
-  void change() {
-    _theme = appSettings['theme']!;
+  void change(String theme) {
+    _theme = theme;
     notifyListeners();
   }
 }
 
 class ChangeNavigation with ChangeNotifier {
   int _index = 0;
-  bool _switch = false;
 
-  bool get getSwitch => _switch;
-
-  int get getIndex {
-    _switch = false;
-    return _index;
-  }
+  int get getIndex => _index;
 
   void change(int index) {
     _index = index;
-    _switch = true;
     notifyListeners();
   }
 }

@@ -35,9 +35,9 @@ class _SettingsPageState extends State<SettingsPage> {
               child: ListTile(
                 leading: const Icon(Icons.color_lens_outlined, size: 34),
                 title: const Text('Тема приложения'),
-                subtitle: Text(appSettings['theme'] == 'light'
+                subtitle: Text(context.watch<ChangeTheme>().getTheme == 'light'
                     ? 'Светлая тема'
-                    : appSettings['theme'] == 'dark'
+                    : context.watch<ChangeTheme>().getTheme == 'dark'
                         ? 'Темная тема'
                         : 'Системная тема'),
               ),
@@ -69,7 +69,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     if (value != null) {
                       changePrefs('theme', value);
                       appSettings['theme'] = value;
-                      context.read<ChangeTheme>().change();
+                      context.read<ChangeTheme>().change(value);
                     }
                   },
                 );
@@ -101,7 +101,7 @@ class _SettingsPageState extends State<SettingsPage> {
             margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: ListTile(
               title: Text('Delicious'),
-              subtitle: Text('Версия 0.7 Alpha'),
+              subtitle: Text('Версия 0.7.1 Alpha'),
             ),
           ),
         ],
