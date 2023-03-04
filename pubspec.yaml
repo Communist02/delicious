@@ -30,10 +30,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  shared_preferences: ^2.0.17
+  shared_preferences: ^2.0.18
   firebase_core: ^2.4.1
-  cloud_firestore: ^4.3.1
-  firebase_auth: ^4.2.5
+  cloud_firestore: ^4.4.3
+  firebase_auth: ^4.2.9
   cached_network_image: ^3.2.3
   backdrop: ^0.8.1
   bubble_tab_indicator: ^0.1.6
