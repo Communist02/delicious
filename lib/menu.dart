@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 import 'state_update.dart';
 
 class MenuPage extends StatefulWidget {
-  const MenuPage({Key? key}) : super(key: key);
+  const MenuPage({super.key});
 
   @override
   State<MenuPage> createState() => _MenuPageState();
@@ -53,6 +53,7 @@ class _MenuPageState extends State<MenuPage> {
           return DefaultTabController(
             length: menuTabs0.length,
             child: Scaffold(
+
               body: NestedScrollView(
                 floatHeaderSlivers: true,
                 headerSliverBuilder: (context, innerBoxIsScrolled) {
@@ -63,16 +64,11 @@ class _MenuPageState extends State<MenuPage> {
                         pinned: true,
                         floating: true,
                         snap: true,
-                        elevation: 1,
                         title: GestureDetector(
                           onTap: () {
                             showSearch(context: context, delegate: MenuSearch());
                           },
                           child: Card(
-                            elevation: 2,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(21),
-                            ),
                             child: Container(
                               height: 46,
                               padding: const EdgeInsets.only(left: 12, right: 1),
@@ -225,7 +221,7 @@ class ProductView extends StatelessWidget {
 }
 
 class ProductsView extends StatelessWidget {
-  const ProductsView({Key? key, required this.category}) : super(key: key);
+  const ProductsView({super.key, required this.category});
   final String category;
 
   @override
@@ -331,7 +327,7 @@ class MenuSearch extends SearchDelegate<MenuSearch> {
 }
 
 class HistoryView extends StatefulWidget {
-  const HistoryView(Function(dynamic value) param0, {Key? key, required this.onSelected}) : super(key: key);
+  const HistoryView(Function(dynamic value) param0, {super.key, required this.onSelected});
   final ValueChanged<String> onSelected;
 
   @override

@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 import 'state_update.dart';
 
 class PaymentPage extends StatefulWidget {
-  const PaymentPage({Key? key}) : super(key: key);
+  const PaymentPage({super.key});
 
   @override
   State<PaymentPage> createState() => _PaymentPageState();
@@ -114,7 +114,7 @@ class ProductView extends StatelessWidget {
 }
 
 class ProductsView extends StatelessWidget {
-  const ProductsView({Key? key}) : super(key: key);
+  const ProductsView({super.key});
 
   @override
   Widget build(BuildContext context) {

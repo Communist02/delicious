@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 int _indexDay = 0;
 
 class TablePage extends StatefulWidget {
-  const TablePage({Key? key, required this.table}) : super(key: key);
+  const TablePage({super.key, required this.table});
   final RestaurantTable table;
 
   @override
@@ -63,7 +63,7 @@ class _TablePageState extends State<TablePage> {
 }
 
 class TableView extends StatefulWidget {
-  const TableView({Key? key, required this.table}) : super(key: key);
+  const TableView({super.key, required this.table});
   final RestaurantTable table;
 
   @override
@@ -150,14 +150,14 @@ class _TableViewState extends State<TableView> {
                               .map(
                                 (int index) => OutlinedButton(
                                   style: ButtonStyle(
-                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                                       RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(6),
                                       ),
                                     ),
                                     backgroundColor: index == _indexDay
-                                        ? MaterialStateProperty.all<Color>(Theme.of(context).colorScheme.secondary)
-                                        : MaterialStateProperty.all<Color>(Colors.transparent),
+                                        ? WidgetStateProperty.all<Color>(Theme.of(context).colorScheme.secondary)
+                                        : WidgetStateProperty.all<Color>(Colors.transparent),
                                   ),
                                   onPressed: () {
                                     setState(() {
@@ -197,9 +197,9 @@ class _TableViewState extends State<TableView> {
                         runSpacing: 5,
                         alignment: WrapAlignment.spaceBetween,
                         children: [
-                          Row(
+                          const Row(
                             mainAxisSize: MainAxisSize.min,
-                            children: const [
+                            children: [
                               Icon(Icons.radio_button_off),
                               Text(
                                 ' Свободно',
@@ -249,14 +249,14 @@ class _TableViewState extends State<TableView> {
                               table.times(table.dates(_countDay)[_indexDay], _startTime, _endTime)[index], table.number);
                           return OutlinedButton(
                             style: ButtonStyle(
-                              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                              shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(6),
                                 ),
                               ),
                               backgroundColor: _indexTime1 != null && index >= _indexTime1! && index <= _indexTime2!
-                                  ? MaterialStateProperty.all<Color>(Theme.of(context).colorScheme.secondary)
-                                  : MaterialStateProperty.all<Color>(status == 0
+                                  ? WidgetStateProperty.all<Color>(Theme.of(context).colorScheme.secondary)
+                                  : WidgetStateProperty.all<Color>(status == 0
                                       ? _colorFree
                                       : status == 1
                                           ? _colorBooked
@@ -330,7 +330,7 @@ class _TableViewState extends State<TableView> {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: ElevatedButton(
           style: ButtonStyle(
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            shape: WidgetStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(19),
               ),

@@ -10,7 +10,7 @@ import 'table.dart';
 import 'package:intl/intl.dart';
 
 class ReservationPage extends StatefulWidget {
-  const ReservationPage({Key? key}) : super(key: key);
+  const ReservationPage({super.key});
 
   @override
   State<ReservationPage> createState() => _ReservationPageState();
@@ -79,13 +79,16 @@ class _ReservationPageState extends State<ReservationPage> {
 }
 
 class TableView extends StatelessWidget {
-  const TableView({Key? key, required this.table}) : super(key: key);
+  const TableView({super.key, required this.table});
+
   final RestaurantTable table;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => TablePage(table: table))),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => TablePage(table: table)));
+      },
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(21)),
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
@@ -135,7 +138,8 @@ class TableView extends StatelessWidget {
 }
 
 class TablesView extends StatelessWidget {
-  TablesView({Key? key}) : super(key: key);
+  TablesView({super.key});
+
   final CloudStore _cloudStore = CloudStore();
 
   @override
@@ -163,7 +167,8 @@ class TablesView extends StatelessWidget {
 }
 
 class ReservationView extends StatelessWidget {
-  const ReservationView({Key? key, required this.reservation}) : super(key: key);
+  const ReservationView({super.key, required this.reservation});
+
   final Reservation reservation;
 
   @override
@@ -261,7 +266,8 @@ class ReservationView extends StatelessWidget {
 }
 
 class ReservationsView extends StatelessWidget {
-  ReservationsView({Key? key}) : super(key: key);
+  ReservationsView({super.key});
+
   final CloudStore _cloudStore = CloudStore();
 
   @override

@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /products/{product} {
+      allow read;
+    }
+    match /tables/{table} {
+      allow read;
+    }
+    match /orders/{order} {
+      allow read, write;
+    }
+    match /reservations/{reservation} {
+    	allow read, write;
+    }
+    match /settings/{setting} {
+      allow read;
+    }
+  }
+}

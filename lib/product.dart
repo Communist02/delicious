@@ -8,7 +8,7 @@ import 'state_update.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProductPage extends StatelessWidget {
-  const ProductPage({Key? key, required this.product}) : super(key: key);
+  const ProductPage({super.key, required this.product});
   final MenuProduct product;
 
   @override
@@ -42,7 +42,7 @@ class ProductPage extends StatelessWidget {
               Column(
                 children: [
                   Flexible(
-                    flex: 2,
+                    flex: 1,
                     child: Container(
                       decoration: BoxDecoration(
                         color: Colors.amber.shade600,
@@ -104,7 +104,7 @@ class ProductPage extends StatelessWidget {
 }
 
 class ProductView extends StatelessWidget {
-  ProductView({Key? key, required this.product}) : super(key: key);
+  ProductView({super.key, required this.product});
   final MenuProduct product;
   final _messengerKey = GlobalKey<ScaffoldMessengerState>();
 
@@ -197,7 +197,7 @@ class ProductView extends StatelessWidget {
           color: Theme.of(context).cardColor,
           child: ElevatedButton(
             style: ButtonStyle(
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),

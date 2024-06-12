@@ -8,7 +8,7 @@ import 'state_update.dart';
 import 'package:intl/intl.dart';
 
 class OrdersPage extends StatefulWidget {
-  const OrdersPage({Key? key}) : super(key: key);
+  const OrdersPage({super.key});
 
   @override
   State<OrdersPage> createState() => _OrdersPageState();
@@ -55,7 +55,7 @@ class _OrdersPageState extends State<OrdersPage> {
 }
 
 class NotAccount extends StatelessWidget {
-  const NotAccount({Key? key}) : super(key: key);
+  const NotAccount({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -64,9 +64,9 @@ class NotAccount extends StatelessWidget {
         width: double.infinity,
         child: InkWell(
           onTap: () => context.read<ChangeNavigation>().change(2),
-          child: Column(
+          child: const Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Icon(Icons.person_outline_rounded, size: 150),
               Text(
                 'Войдите в аккаунт',
@@ -81,7 +81,7 @@ class NotAccount extends StatelessWidget {
 }
 
 class OrderView extends StatelessWidget {
-  const OrderView({Key? key, required this.order}) : super(key: key);
+  const OrderView({super.key, required this.order});
   final OrderProducts order;
 
   String dateTime(DateTime dateTime) {
@@ -165,7 +165,7 @@ class OrderView extends StatelessWidget {
 }
 
 class OrdersView extends StatelessWidget {
-  OrdersView({Key? key}) : super(key: key);
+  OrdersView({super.key});
 
   final CloudStore _cloudStore = CloudStore();
 

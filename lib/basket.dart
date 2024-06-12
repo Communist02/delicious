@@ -10,7 +10,7 @@ import 'product.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class BasketPage extends StatefulWidget {
-  const BasketPage({Key? key}) : super(key: key);
+  const BasketPage({super.key});
 
   @override
   State<BasketPage> createState() => _BasketPageState();
@@ -65,9 +65,9 @@ class BasketEmpty extends StatelessWidget {
         width: double.infinity,
         child: InkWell(
           onTap: () => context.read<ChangeNavigation>().change(0),
-          child: Column(
+          child: const Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Icon(Icons.shopping_cart_outlined, size: 150),
               Text(
                 'Корзина пуста',
@@ -85,7 +85,7 @@ class BasketEmpty extends StatelessWidget {
 }
 
 class BasketProductView extends StatelessWidget {
-  const BasketProductView({Key? key, required this.basketProduct}) : super(key: key);
+  const BasketProductView({super.key, required this.basketProduct});
   final BasketProduct basketProduct;
 
   Future<void> sharedBasket() async {
@@ -223,7 +223,7 @@ class BasketProductView extends StatelessWidget {
 }
 
 class BasketView extends StatelessWidget {
-  const BasketView({Key? key}) : super(key: key);
+  const BasketView({super.key});
 
   @override
   Widget build(BuildContext context) {

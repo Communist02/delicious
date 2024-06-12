@@ -8,6 +8,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'state_update.dart';
 import 'dart:convert';
+import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +26,7 @@ Future<void> main() async {
   final basket = prefs.getString('basket');
   if (basket != null) globalBasket.products = globalBasket.fromMap(jsonDecode(basket));
 
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   AuthService().sign();
   runApp(const MyApp());
 }
